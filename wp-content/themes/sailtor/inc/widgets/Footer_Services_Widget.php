@@ -5,8 +5,8 @@ class Footer_Services_Widget extends WP_Widget {
     public function __construct() {
         parent::__construct(
             'footer_services_widget',
-            __('Footer Services Widget', 'votretheme'),
-            array( 'description' => __('Widget pour la section "Nos services" du footer', 'votretheme') )
+            __('Footer Services Widget', 'sailtor'),
+            array( 'description' => __('Widget pour la section "Nos services" du footer', 'sailtor') )
         );
     }
 
@@ -20,8 +20,8 @@ class Footer_Services_Widget extends WP_Widget {
         <ul>
             <?php
             $args_services = array(
-                'post_type' => 'services', // Remplacez par le nom de votre custom post type
-                'posts_per_page' => -1, // Récupérer tous les services
+                'post_type' => 'service', 
+                'posts_per_page' => -1, 
                 'orderby' => 'title',
                 'order' => 'ASC',
             );
@@ -34,7 +34,7 @@ class Footer_Services_Widget extends WP_Widget {
                     <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
                     <?php
                 }
-                wp_reset_postdata(); // Réinitialiser les données de post globales
+                wp_reset_postdata(); 
             }
             ?>
         </ul>
