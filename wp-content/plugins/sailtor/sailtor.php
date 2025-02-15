@@ -45,6 +45,70 @@ add_action('init', function () {
         ],
         'supports' => ['title', 'editor', 'excerpt', 'thumbnail']
     ]);
+    register_post_type('portfolio', [
+        'label' => __('Portfolio', 'sailtor'),
+        'menu_icon' => 'dashicons-portfolio',
+        'labels' => [
+            'name'                     => __('Portfolio Items', 'sailtor'),
+            'singular_name'            => __('Portfolio Item', 'sailtor'),
+            'edit_item'                => __('Edit Portfolio Item', 'sailtor'),
+            'new_item'                 => __('New Portfolio Item', 'sailtor'),
+            'view_item'                => __('View Portfolio Item', 'sailtor'),
+            'view_items'               => __('View Portfolio Items', 'sailtor'),
+            'search_items'             => __('Search Portfolio', 'sailtor'),
+            'not_found'                => __('No portfolio items found.', 'sailtor'),
+            'not_found_in_trash'       => __('No portfolio items found in Trash', 'sailtor'),
+            'all_items'                => __('All Portfolio Items', 'sailtor'),
+            'archives'                => __('Portfolio Archive', 'sailtor'),
+            'attributes'               => __('Portfolio Attributes', 'sailtor'),
+            'insert_into_item'         => __('Insert into portfolio item', 'sailtor'),
+            'uploaded_to_this_item'    => __('Uploaded to this portfolio item', 'sailtor'),
+            'filter_items_list'        => __('Filter portfolio list', 'sailtor'),
+            'items_list_navigation'    => __('Portfolio list navigation', 'sailtor'),
+            'items_list'               => __('Portfolio list', 'sailtor'),
+            'item_published'           => __('Portfolio item published.', 'sailtor'),
+            'item_published_privately' => __('Portfolio item published privately.', 'sailtor'),
+            'item_reverted_to_draft'   => __('Portfolio item reverted to draft.', 'sailtor'),
+            'item_scheduled'           => __('Portfolio item scheduled.', 'sailtor'),
+            'item_updated'             => __('Portfolio item updated.', 'sailtor'),
+        ],
+        'has_archive' => true,
+        'public' => true,
+        'hierarchical' => false,
+        'exclude_from_search' => false,
+        'rewrite' => [
+            'slug' => _x('portfolio', 'URL', 'sailtor')
+        ],
+        'taxonomies' => ['portfolio_category'],
+        'supports' => ['title', 'editor', 'excerpt', 'thumbnail']
+    ]);
+    register_taxonomy('portfolio_category', 'portfolio', [
+        'meta_box_cb' => 'post_categories_meta_box',
+        'hierarchical' => true,
+        'labels' => [
+            'name'                       => __('Portfolio Categories', 'sailtor'),
+            'singular_name'              => __('Portfolio Category', 'sailtor'),
+            'search_items'               => __('Search Categories', 'sailtor'),
+            'popular_items'              => __('Popular Categories', 'sailtor'),
+            'all_items'                  => __('All Categories', 'sailtor'),
+            'edit_item'                  => __('Edit Category', 'sailtor'),
+            'view_item'                  => __('View Category', 'sailtor'),
+            'update_item'                => __('Update Category', 'sailtor'),
+            'add_new_item'               => __('Add New Category', 'sailtor'),
+            'new_item_name'              => __('New Category Name', 'sailtor'),
+            'separate_items_with_commas' => __('Separate categories with commas', 'sailtor'),
+            'add_or_remove_items'        => __('Add or remove categories', 'sailtor'),
+            'choose_from_most_used'      => __('Choose from the most used categories', 'sailtor'),
+            'not_found'                  => __('No categories found.', 'sailtor'),
+            'no_terms'                   => __('No categories', 'sailtor'),
+            'items_list_navigation'      => __('Categories list navigation', 'sailtor'),
+            'items_list'                 => __('Categories list', 'sailtor'),
+            'back_to_items'              => __('&larr; Back to Categories', 'sailtor'),
+        ],
+        'rewrite' => [
+            'slug' => 'portfolio-category'
+        ]
+    ]);
 });
 
 
