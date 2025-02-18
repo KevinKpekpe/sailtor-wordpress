@@ -82,6 +82,43 @@ add_action('init', function () {
         'taxonomies' => ['portfolio_category'],
         'supports' => ['title', 'editor', 'excerpt', 'thumbnail']
     ]);
+    register_post_type('team_member', [
+        'label'       => __('Team Members', 'sailtor'),
+        'menu_icon'   => 'dashicons-groups',
+        'labels'      => [
+            'name'                     => __('Team Members', 'sailtor'),
+            'singular_name'            => __('Team Member', 'sailtor'),
+            'edit_item'                => __('Edit Team Member', 'sailtor'),
+            'new_item'                 => __('New Team Member', 'sailtor'),
+            'view_item'                => __('View Team Member', 'sailtor'),
+            'view_items'               => __('View Team Members', 'sailtor'),
+            'search_items'             => __('Search Team Members', 'sailtor'),
+            'not_found'                => __('No team members found.', 'sailtor'),
+            'not_found_in_trash'       => __('No team members found in Trash', 'sailtor'),
+            'all_items'                => __('All Team Members', 'sailtor'),
+            'archives'                 => __('Team Member Archive', 'sailtor'),
+            'attributes'               => __('Team Member Attributes', 'sailtor'),
+            'insert_into_item'         => __('Insert into team member', 'sailtor'),
+            'uploaded_to_this_item'    => __('Uploaded to this team member', 'sailtor'),
+            'filter_items_list'        => __('Filter team members list', 'sailtor'),
+            'items_list_navigation'    => __('Team members list navigation', 'sailtor'),
+            'items_list'               => __('Team members list', 'sailtor'),
+            'item_published'           => __('Team member published.', 'sailtor'),
+            'item_published_privately' => __('Team member published privately.', 'sailtor'),
+            'item_reverted_to_draft'   => __('Team member reverted to draft.', 'sailtor'),
+            'item_scheduled'           => __('Team member scheduled.', 'sailtor'),
+            'item_updated'             => __('Team member updated.', 'sailtor'),
+        ],
+        'has_archive'           => true,
+        'public'                => true,
+        'hierarchical'          => false,
+        'exclude_from_search'   => false,
+        'rewrite'               => [
+            'slug' => _x('team', 'URL', 'sailtor')
+        ],
+        'supports'              => ['title', 'editor', 'excerpt', 'thumbnail']
+    ]);
+    
     register_taxonomy('portfolio_category', 'portfolio', [
         'meta_box_cb' => 'post_categories_meta_box',
         'hierarchical' => true,

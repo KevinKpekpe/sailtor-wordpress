@@ -1,17 +1,17 @@
 <?php get_header(); ?>
 <main class="main">
-    <!-- Page Title -->
-    <div class="page-title light-background">
-        <div class="container d-lg-flex justify-content-between align-items-center">
-            <h1 class="mb-2 mb-lg-0">Services</h1>
-            <nav class="breadcrumbs">
-                <ol>
-                    <li><a href="index.html">Home</a></li>
-                    <li class="current">Services</li>
-                </ol>
-            </nav>
-        </div>
-    </div><!-- End Page Title -->
+<div class="page-title light-background">
+    <div class="container d-lg-flex justify-content-between align-items-center">
+        <h1 class="mb-2 mb-lg-0"><?php the_title(); ?></h1>
+        <nav class="breadcrumbs">
+            <ol>
+                <li><a href="<?php echo esc_url(home_url('/')); ?>"><?php _e('Home', 'sailtor'); ?></a></li>
+                <li><a href="<?php echo get_post_type_archive_link('service'); ?>"><?php _e('Service', 'sailtor'); ?></a></li>
+                <li class="current"><?php the_title(); ?></li>
+            </ol>
+        </nav>
+    </div>
+</div><!-- End Page Title -->
     <section id="service-details" class="service-details section">
         <div class="container">
             <div class="row gy-4">
