@@ -9,6 +9,7 @@ require_once ('widgets/Footer_Newsletter_Widget.php');
 require_once ('widgets/Footer_Services_Widget.php');
 add_action('after_setup_theme', function () {
     register_nav_menu('header', __('Main navigation', 'sailtor'));
+    add_image_size('custom-thumbnail', 80, 60, true);
 });
 
 add_action('widgets_init', function () {
