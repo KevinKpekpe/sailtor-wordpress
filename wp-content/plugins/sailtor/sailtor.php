@@ -118,6 +118,42 @@ add_action('init', function () {
         ],
         'supports'              => ['title', 'editor', 'excerpt', 'thumbnail']
     ]);
+
+    register_post_type('pricing', [
+        'label' => __('Pricing', 'sailtor'),
+        'menu_icon' => 'dashicons-cart',
+        'labels' => [
+            'name'                     => __('Pricing Items', 'sailtor'),
+            'singular_name'            => __('Pricing Item', 'sailtor'),
+            'edit_item'                => __('Edit Pricing Item', 'sailtor'),
+            'new_item'                 => __('New Pricing Item', 'sailtor'),
+            'view_item'                => __('View Pricing Item', 'sailtor'),
+            'view_items'               => __('View Pricing Items', 'sailtor'),
+            'search_items'             => __('Search Pricing', 'sailtor'),
+            'not_found'                => __('No pricing items found.', 'sailtor'),
+            'not_found_in_trash'       => __('No pricing items found in Trash', 'sailtor'),
+            'all_items'                => __('All Pricing Items', 'sailtor'),
+            'archives'                 => __('Pricing Archive', 'sailtor'),
+            'attributes'               => __('Pricing Attributes', 'sailtor'),
+            'insert_into_item'         => __('Insert into pricing item', 'sailtor'),
+            'uploaded_to_this_item'    => __('Uploaded to this pricing item', 'sailtor'),
+            'filter_items_list'        => __('Filter pricing items list', 'sailtor'),
+            'items_list_navigation'    => __('Pricing items list navigation', 'sailtor'),
+            'items_list'               => __('Pricing items list', 'sailtor'),
+            'item_published'           => __('Pricing item published.', 'sailtor'),
+            'item_published_privately' => __('Pricing item published privately.', 'sailtor'),
+            'item_reverted_to_draft'   => __('Pricing item reverted to draft.', 'sailtor'),
+            'item_scheduled'           => __('Pricing item scheduled.', 'sailtor'),
+            'item_updated'             => __('Pricing item updated.', 'sailtor'),
+        ],
+        'has_archive' => true,
+        'public' => true,
+        'hierarchical' => false,
+        'exclude_from_search' => false,
+        'rewrite' => [
+            'slug' => _x('pricing', 'URL', 'sailtor')
+        ],
+    ]);
     
     register_taxonomy('portfolio_category', 'portfolio', [
         'meta_box_cb' => 'post_categories_meta_box',
@@ -147,6 +183,7 @@ add_action('init', function () {
         ]
     ]);
 });
+
 
 
 register_activation_hook(__FILE__, 'flush_rewrite_rules');
