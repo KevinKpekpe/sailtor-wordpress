@@ -14,7 +14,7 @@
   <?php wp_head(); ?>
 </head>
 
-<body class="index-page">
+<body <?php body_class(); ?> >
 
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">

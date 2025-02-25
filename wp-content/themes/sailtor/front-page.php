@@ -82,7 +82,7 @@
 
                 <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
                     <p> <?php the_field('about_sub_content') ?> </p>
-                    <a href="about.html" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                    <a href="<?php the_field('about_read_more_link') ?>" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
                 </div>
 
             </div>
