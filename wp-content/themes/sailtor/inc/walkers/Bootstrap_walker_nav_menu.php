@@ -48,7 +48,7 @@ class Bootstrap_Walker_Nav_Menu extends Walker_Nav_Menu
         $item_output .= '</a>';
         $item_output .= $args->after;
 
-        $output .= $indent . '<li id="menu-item-' . $item->ID . '" class="' . implode(' ', $classes) . '">'; // Ajout de la classe 'dropdown' si nécessaire
+        $output .= $indent . '<li id="menu-item-' . $item->ID . '" class="' . implode(' ', $classes) . '">'; 
         $output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
     }
 

@@ -7,7 +7,7 @@
             <h1 class="mb-2 mb-lg-0">Pricing</h1>
             <nav class="breadcrumbs">
                 <ol>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="<?php echo home_url(); ?>">Home</a></li>
                     <li class="current">Pricing</li>
                 </ol>
             </nav>

@@ -7,9 +7,9 @@
             <h1 class="mb-2 mb-lg-0">
                 <?php 
                 if (is_search()) {
-                    printf(esc_html__('Search Results for: %s', 'textdomain'), get_search_query());
+                    printf(esc_html__('Search Results for: %s', 'sailtor'), get_search_query());
                 } else {
-                    esc_html_e('Blog', 'textdomain');
+                    esc_html_e('Blog', 'sailtor');
                 }
                 ?>
             </h1>
@@ -17,7 +17,7 @@
                 <ol>
                     <li><a href="<?php echo esc_url(home_url('/')); ?>">Home</a></li>
                     <li class="current">
-                        <?php echo is_search() ? esc_html__('Search Results', 'textdomain') : esc_html__('Blog', 'textdomain'); ?>
+                        <?php echo is_search() ? esc_html__('Search Results', 'sailtor') : esc_html__('Blog', 'sailtor'); ?>
                     </li>
                 </ol>
             </nav>
@@ -82,7 +82,7 @@
                                     </div><!-- End post list item -->
                                 <?php endwhile;
                             else: ?>
-                                <p><?php esc_html_e('Désolé, aucun résultat ne correspond à votre recherche.', 'textdomain'); ?></p>
+                                <p><?php esc_html_e('Désolé, aucun résultat ne correspond à votre recherche.', 'sailtor'); ?></p>
                             <?php endif; ?>
                         </div><!-- End blog posts list -->
                     </div>
@@ -109,13 +109,13 @@
 
                     <!-- Search Widget -->
                     <div class="search-widget widget-item">
-                        <h3 class="widget-title"><?php esc_html_e('Search', 'textdomain'); ?></h3>
+                        <h3 class="widget-title"><?php esc_html_e('Search', 'sailtor'); ?></h3>
                         <?php get_search_form(); ?>
                     </div><!--/Search Widget -->
 
                     <!-- Categories Widget -->
                     <div class="categories-widget widget-item">
-                        <h3 class="widget-title"><?php esc_html_e('Categories', 'textdomain'); ?></h3>
+                        <h3 class="widget-title"><?php esc_html_e('Categories', 'sailtor'); ?></h3>
                         <ul class="mt-3">
                             <?php
                             wp_list_categories(array(
@@ -130,7 +130,7 @@
 
                     <!-- Recent Posts Widget -->
                     <div class="recent-posts-widget widget-item">
-                        <h3 class="widget-title"><?php esc_html_e('Recent Posts', 'textdomain'); ?></h3>
+                        <h3 class="widget-title"><?php esc_html_e('Recent Posts', 'sailtor'); ?></h3>
                         <?php
                         $recent_posts = wp_get_recent_posts(array(
                             'numberposts' => 5,
@@ -142,7 +142,7 @@
                                     <?php if (has_post_thumbnail($post['ID'])) : ?>
                                         <?php echo get_the_post_thumbnail($post['ID'], 'custom-thumbnail', array('class' => 'flex-shrink-0')); ?>
                                     <?php else : ?>
-                                        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/default-thumbnail.jpg'); ?>" alt="<?php esc_attr_e('Thumbnail', 'textdomain'); ?>" class="flex-shrink-0">
+                                        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/default-thumbnail.jpg'); ?>" alt="<?php esc_attr_e('Thumbnail', 'sailtor'); ?>" class="flex-shrink-0">
                                     <?php endif; ?>
                                 </a>
                                 <div>

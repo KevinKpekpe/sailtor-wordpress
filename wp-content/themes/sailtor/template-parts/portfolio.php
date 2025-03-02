@@ -7,7 +7,7 @@
                 $terms = get_terms([
                     'taxonomy' => 'portfolio_category',
                     'hide_empty' => true,
-                    'orderby' => 'include' // Ajouter l'ordre souhaité
+                    'orderby' => 'include' 
                 ]);
 
                 if (!empty($terms)) : ?>

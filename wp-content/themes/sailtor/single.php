@@ -90,13 +90,13 @@
 
           <!-- Search Widget -->
           <div class="search-widget widget-item">
-            <h3 class="widget-title"><?php esc_html_e('Recherche', 'textdomain'); ?></h3>
+            <h3 class="widget-title"><?php esc_html_e('Recherche', 'sailtor'); ?></h3>
             <?php get_search_form(); ?>
           </div><!--/Search Widget -->
 
           <!-- Categories Widget -->
           <div class="categories-widget widget-item">
-            <h3 class="widget-title"><?php esc_html_e('Catégories', 'textdomain'); ?></h3>
+            <h3 class="widget-title"><?php esc_html_e('Catégories', 'sailtor'); ?></h3>
             <ul class="mt-3">
               <?php
               wp_list_categories(array(
@@ -111,7 +111,7 @@
 
           <!-- Recent Posts Widget -->
           <div class="recent-posts-widget widget-item">
-            <h3 class="widget-title"><?php esc_html_e('Articles Récents', 'textdomain'); ?></h3>
+            <h3 class="widget-title"><?php esc_html_e('Articles Récents', 'sailtor'); ?></h3>
             <?php
             $recent_posts = wp_get_recent_posts(array(
               'numberposts' => 5,
@@ -123,7 +123,7 @@
                   <?php if (has_post_thumbnail($post['ID'])) : ?>
                     <?php echo get_the_post_thumbnail($post['ID'], 'custom-thumbnail', array('class' => 'flex-shrink-0')); ?>
                   <?php else : ?>
-                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/default-thumbnail.jpg'); ?>" alt="<?php esc_attr_e('Miniature', 'textdomain'); ?>" class="flex-shrink-0">
+                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/default-thumbnail.jpg'); ?>" alt="<?php esc_attr_e('Miniature', 'sailtor'); ?>" class="flex-shrink-0">
                   <?php endif; ?>
                 </a>
                 <div>

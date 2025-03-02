@@ -22,3 +22,11 @@ add_action('wp_enqueue_scripts', function () {
     wp_enqueue_script('swiper', get_template_directory_uri() . '/assets/vendor/swiper/swiper-bundle.min.js', array(), null, true);
     wp_enqueue_script('main-script', get_template_directory_uri() . '/assets/js/main.js', array(), null, true);
 });
+
+add_filter('wpcf7_form_elements', function(string $content) {
+    $content = preg_replace('/<(span).*?class="\s*(?:.*\s)?wpcf7-form-control-wrap(?:\s[^"]+)?\s*"[^\>]*>(.*)<\/\1>/i', '\2', $content);
+    $content = str_replace('<br />', '', $content);
+    $content = str_replace('<p>', '', $content);
+    $content = str_replace('</p>', '', $content);
+    return $content;
+});

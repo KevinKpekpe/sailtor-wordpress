@@ -119,6 +119,18 @@ add_action('init', function () {
         'supports'              => ['title', 'editor', 'excerpt', 'thumbnail']
     ]);
 
+    register_post_type( 'testimonial',
+        array(
+            'labels' => array(
+                'name' => __( 'Témoignages' ),
+                'singular_name' => __( 'Témoignage' )
+            ),
+            'public' => true,
+            'has_archive' => false,
+            'supports' => array( 'title', 'editor', 'thumbnail' )
+        )
+    );
+
     register_post_type('pricing', [
         'label' => __('Pricing', 'sailtor'),
         'menu_icon' => 'dashicons-cart',
@@ -184,6 +196,32 @@ add_action('init', function () {
     ]);
 });
 
+function add_testimonial_meta_box() {
+    add_meta_box(
+        'testimonial_meta_box',
+        'Détails du Témoignage',
+        'testimonial_meta_box_content',
+        'testimonial',
+        'advanced',
+        'high'
+    );
+}
+add_action( 'add_meta_boxes', 'add_testimonial_meta_box' );
+
+function testimonial_meta_box_content( $post ) {
+    $job_title = get_post_meta( $post->ID, 'job_title', true );
+    ?>
+    <label for="job_title">Titre du Poste</label>
+    <input type="text" name="job_title" id="job_title" value="<?php echo esc_attr( $job_title ); ?>">
+    <?php
+}
+
+function save_testimonial_meta_box( $post_id ) {
+    if ( isset( $_POST['job_title'] ) ) {
+        update_post_meta( $post_id, 'job_title', sanitize_text_field( $_POST['job_title'] ) );
+    }
+}
+add_action( 'save_post_testimonial', 'save_testimonial_meta_box' );
 
 
 register_activation_hook(__FILE__, 'flush_rewrite_rules');
